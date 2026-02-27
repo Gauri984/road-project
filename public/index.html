@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TRACK MY ROAD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<link rel="stylesheet" href="index.css">
+
+
+</head>
+
+<body>
+
+<div class="gov-header">
+  Government of [Your Country] | Ministry of Road Transport & Infrastructure
+</div>
+
+<div class="main-header">
+  <h1>TRACK MY ROAD</h1>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Report Damage</a>
+    <a href="#">Track Complaint</a>
+    <a href="#">Contact</a>
+    <a href="#">Login</a>
+  </div>
+</div>
+
+<div class="hero">
+  <h2>Public Road Maintenance Reporting System</h2>
+  <p>Submit and track road damage complaints directly to the responsible authority.</p>
+  
+<a href="report.html">
+    <button class="btn-primary">File a Complaint</button>
+</a>
+<a href="track.html">
+    <button>Track Existing Report</button>
+</a>
+<div class="section">
+  <h3>How the System Works</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>1. Submit Report</h4>
+      <p>Provide damage details and upload supporting images.</p>
+    </div>
+    <div class="step">
+      <h4>2. Verification</h4>
+      <p>Authorities review and assign maintenance teams.</p>
+    </div>
+    <div class="step">
+      <h4>3. Resolution</h4>
+      <p>Track status updates until repair completion.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Live Road Damage Map</h3>
+  <div id="map"></div>
+</div>
+
+<div class="section">
+  <h3>Current Statistics</h3>
+  <div class="stats">
+    <div>1,245 Complaints Received</div>
+    <div>830 Resolved</div>
+    <div>120 Under Review</div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 Ministry of Road Transport & Infrastructure<br>
+  All Rights Reserved | Official Government Portal
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+var map = L.map('map').setView([40.7128, -74.0060], 12);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+L.marker([40.7128, -74.0060]).addTo(map)
+  .bindPopup("High Severity - Under Review");
+
+L.marker([40.7228, -74.0160]).addTo(map)
+  .bindPopup("Medium Damage - Assigned");
+
+L.marker([40.7328, -74.0260]).addTo(map)
+  .bindPopup("Resolved - Repair Completed");
+</script>
+<script>
+function goToReport(button) {
+
+  // 1. Animate the button
+  button.style.transform = "scale(0.95)";
+
+  // 2. Wait 300 milliseconds
+  setTimeout(function() {
+
+    // 3. Redirect to another page
+    window.location.href = "report.html";
+
+  }, 300);
+
+}
+</script>
+
+</body>
+</html>

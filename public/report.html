@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File a Complaint</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <h2>Road Damage Complaint Form</h2>
+
+<form action="/complaints" method="POST" enctype="multipart/form-data"></form>
+        <label>Full Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="tel" name="phone" required><br><br>
+
+        <label>Location of Damage:</label><br>
+        <input type="text" name="location" required><br><br>
+
+        <label>Type of Damage:</label><br>
+        <select name="damage_type">
+            <option>Pothole</option>
+            <option>Road Crack</option>
+            <option>Broken Streetlight</option>
+            <option>Water Logging</option>
+            <option>Other</option>
+        </select><br><br>
+
+        <label>Upload Photo:</label><br>
+        <input type="file" name="photo" accept="image/*"><br><br>
+
+        <label>Additional Details:</label><br>
+        <textarea name="details" rows="5" cols="40"></textarea><br><br>
+
+        <button type="submit">Submit Complaint</button>
+
+    </form>
+
+</body>
+<script>
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent page reload
+    alert('Complaint submitted successfully!');
+    form.reset(); // optional: clear the form
+});
+</script>
+</html>
